@@ -135,6 +135,9 @@ then
   ccache -M 50G
 fi
 
+# changelog gen
+. $WORKSPACE/hudson/changelog_gen.sh $LASTBUILDDATE
+
 make $CLEAN_TYPE
 # mka bacon recoveryzip recoveryimage checkapi
 mka bacon
