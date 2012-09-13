@@ -135,9 +135,6 @@ then
   ccache -M 50G
 fi
 
-# changelog gen
-. $WORKSPACE/hudson/changelog_gen.sh $LASTBUILDDATE
-
 make $CLEAN_TYPE
 # mka bacon recoveryzip recoveryimage checkapi
 mka bacon
@@ -146,3 +143,6 @@ check_result "Build failed."
 cp $OUT/aokp*.zip* $WORKSPACE/archive
 # chmod the files in case UMASK blocks permissions
 chmod -R ugo+r $WORKSPACE/archive
+
+# changelog gen
+. $WORKSPACE/hudson/changelog_gen.sh $LASTBUILDDATE
