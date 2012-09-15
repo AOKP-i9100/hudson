@@ -137,6 +137,7 @@ fi
 
 make $CLEAN_TYPE
 # mka bacon recoveryzip recoveryimage checkapi
+export FAST_BUILD=1
 mka bacon
 check_result "Build failed."
 
