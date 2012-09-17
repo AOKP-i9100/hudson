@@ -5,7 +5,10 @@ sdate=${1}
 cdate=`date +"%m_%d_%Y"`
 rdir=`pwd`
 
-sdate=${ydate}
+# Check the date start range is set
+if [ -z "$sdate" ]; then
+        sdate=${ydate}
+fi
 
 # Check the date start range is set
 # Find the directories to log

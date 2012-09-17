@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export DATE=$(date +%h-%d-%y))
+export DATE=$(date +%h-%d-%y)
 
 function check_result {
   if [ "0" -ne "$?" ]
@@ -141,7 +141,6 @@ fi
 
 make $CLEAN_TYPE
 # mka bacon recoveryzip recoveryimage checkapi
-export FAST_BUILD=1
 mka bacon
 check_result "Build failed."
 
