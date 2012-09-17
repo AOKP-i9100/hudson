@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export DATE=$(date +%h-%d-%y))
+
 function check_result {
   if [ "0" -ne "$?" ]
   then
@@ -56,8 +58,10 @@ unset BUILD_NUMBER
 
 export PATH=~/bin:$PATH
 
-export USE_CCACHE=1
 export BUILD_WITH_COLORS=0
+export USE_CCACHE=1
+export CCACHE_COMPILERCHECK=none
+export FAST_BUILD=1
 
 REPO=$(which repo)
 if [ -z "$REPO" ]
@@ -141,7 +145,7 @@ export FAST_BUILD=1
 mka bacon
 check_result "Build failed."
 
-cp $OUT/aokp*.zip* $WORKSPACE/archive
+cp $OUT/aokp*${DATE}.zip $WORKSPACE/archive
 # chmod the files in case UMASK blocks permissions
 chmod -R ugo+r $WORKSPACE/archive
 
